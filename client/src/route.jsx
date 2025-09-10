@@ -1,4 +1,7 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { CartProvider } from "./components/cartContex.jsx";
+
 import Navbar from "./components/Navbar.jsx";
 import Vehicles from "./components/card.jsx";
 import Cart from "./components/AddToCart.jsx";
@@ -14,6 +17,7 @@ import FloatingCircle from "./components/FloatingCircle.jsx";
 
 function App() {
   return (
+    <CartProvider>
     <Router>
       
       <div className="App">
@@ -22,7 +26,7 @@ function App() {
         
         <Routes>
           <Route path="/" element={<Vehicles />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout" element={<Checkout  /> } />
            <Route path="/login" element={<Login />} /> 
             <Route path="/Register" element={<Register />} /> 
           <Route path="/cart" element={<Cart />} />
@@ -31,6 +35,7 @@ function App() {
         <Footer/>
       </div>
     </Router>
+    </CartProvider>
   );
 }
 
